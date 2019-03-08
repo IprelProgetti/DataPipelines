@@ -2,7 +2,7 @@ import setuptools
 
 
 REQUIRED_PACKAGES = []
-PACKAGE_NAME = 'my_transformations'
+PACKAGE_NAME = 'my_alice_pipeline'
 PACKAGE_VERSION = '1.0.0'
 setuptools.setup(
     name=PACKAGE_NAME,

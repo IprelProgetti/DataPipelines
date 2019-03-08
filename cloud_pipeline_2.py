@@ -1,27 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import apache_beam as beam
-from my_transformations.heavy_transforms import ComputeCleanLineFn, ExtractMostLikelyNextWordFn
-from my_transformations.light_transforms import count_ones, format_result
 from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions
 import time
 import argparse
+# Le trasformazioni sono importate da un package specifico
+from my_transformations.heavy_transforms import ComputeCleanLineFn, ExtractMostLikelyNextWordFn
+from my_transformations.light_transforms import count_ones, format_result
 
-# PROJECT = "claudia-assistant"  # GCP project
-# JOB_NAME = "alice-job"  # Dataflow Job name
-# cloud storage file repository
-# RUNNER = "DataflowRunner"  # per lanciare la pipeline su GCP
-# argv = [
-#     '--project={}'.format(PROJECT),
-#     '--staging_location={}'.format("gs://{}/temp".format(BUCKET)),
-#     '--temp_location={}'.format("gs://{}/temp".format(BUCKET)),
-#     '--runner={}'.format(RUNNER),
-#     '--num_workers=8',  # numero di worker su cui parallelizzare il calcolo
-#     '--max_num_workers=10',  # massimi numero di worker in caso di autoscaling
-#     '--region=europe-west1'  # regione di deployment del job
-# ]
-#
 
 BUCKET = "claudia-bucket/data-pipelines"
 DEFAULT_INPUT_FILE = "data/alice.txt"  # "gs://{}/datasets/alice.txt".format(BUCKET)
@@ -37,7 +21,7 @@ def run(argv=None):
     # in questo caso il path ai file di input e output. Questi vengono inseriti nei "known_args".
     #
     # Tutti gli altri parametri sono gestiti direttamente dalla pipeline di Apache Beam (validazione inclusa).
-    # Non conoscendoli, il parser li metterà tra gli "unknown_args", qui rinominati in "pipeline_args".
+    # Non conoscendoli, il parser li mettera' tra gli "unknown_args", qui rinominati in "pipeline_args".
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--input',
@@ -47,7 +31,7 @@ def run(argv=None):
     parser.add_argument('--output',
                         dest='output',
                         default=DEFAULT_OUTPUT_FILE,  # required=True
-                        help='Path completo al file su cui andrà scritto il risultato della pipeline')
+                        help='Path completo al file su cui andra scritto il risultato della pipeline')
     known_args, pipeline_args = parser.parse_known_args(argv)
 
     # preparare le opzioni di esecuzione
@@ -80,7 +64,6 @@ def run(argv=None):
          | 'WriteResult' >> beam.io.WriteToText(known_args.output)
          # output file written
          )
-        p.run()
 
     print("elapsed time: {}s".format(time.time() - start_time))
 
