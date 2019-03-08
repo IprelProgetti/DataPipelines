@@ -32,6 +32,7 @@ Per eseguire la pipeline su Cloud specificare anche le opzioni di Apache Beam:
             --num_workers 8 \
             --input gs://claudia-bucket/data-pipelines/datasets/alice.txt \
             --output gs://claudia-bucket/data-pipelines/output/alice_processed \
+            --job_name alice-job \
             --setup_file setup.py
 
 Per monitorare l'esecuzione della pipeline, collegarsi alla dashboard web di Dataflow.
