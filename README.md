@@ -22,6 +22,9 @@ Sulla home page di Jupyter che si aprirà sul browser, selezionare il notebook `
 
 Uno script Python2 tramite cui eseguire la pipeline su *Google Cloud Dataflow*, con le opzioni di esecuzione hard-coded nel sorgente.
 
+    cd Pt2
+    python cloud_pipeline_1.py
+
 ## Contenuto principale
 
 Progetto Python2 che mostra come strutturare una pipeline Apache Beam in un contesto reale.
