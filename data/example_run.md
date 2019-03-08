@@ -1,10 +1,31 @@
 # Esempi di lancio della pipeline
 
-## Prerequisiti
+## Prerequisiti per l'utilizzo
 
+    git clone https://github.com/horns-g/DataPipelines.git
     cd DataPipelines
 
-## In locale
+## Parte 1
+
+Un notebook Jupyter consultabile (o eseguibile) per prendere confidenza con le APIs di Apache Beam in Python2.
+
+    cd Pt1
+    jupyter notebook
+
+Sulla home page di Jupyter che si aprirà sul browser, selezionare il notebook `BeamPipelines.ipynb` ed eseguirlo cella per cella.
+
+
+## Parte 2
+
+Uno script Python2 tramite cui eseguire la pipeline su *Google Cloud Dataflow*, con le opzioni di esecuzione hard-coded nel sorgente.
+
+## Contenuto principale
+
+Progetto Python2 che mostra come strutturare una pipeline Apache Beam in un contesto reale.
+
+Con questa struttura la pipeline può essere eseguita sia in locale sia in remoto in modo del tutto trasparente.
+
+#### Esecuzione in locale
 
 Per eseguire la pipeline in locale (--runner DirectRunner):
 
@@ -19,7 +40,7 @@ Per eseguire la pipeline in locale (--runner DirectRunner):
             --output path/to/my-output-file.ext
             
             
-## Su Google Cloud Dataflow
+#### Esecuzione su Google Cloud Dataflow
 
 Per eseguire la pipeline su Cloud specificare anche le opzioni di Apache Beam:
 
