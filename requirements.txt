@@ -38,7 +38,7 @@ jupyter-client==5.2.4
 jupyter-core==4.4.0
 mock==2.0.0
 monotonic==1.5
-numpy==1.16.2
+numpy==1.22.0
 oauth2client==3.0.0
 pandas==0.24.1
 pathlib2==2.3.3
